@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Components/App';
+import TKL from './Components/TKL'
+import { HashRouter, Routes, Route } from "react-router-dom"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <HashRouter>
+    <Routes>
+          <Route path="/" element={<App />} component={<App/>}/>
+          <Route path="/tkl" element={<TKL />} component={<TKL/>}/>
+      </Routes>
+  </HashRouter>
 );
 
