@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import $ from "jquery";
+
+import { useState } from 'react';
 
 
 const Container = styled.div`
@@ -94,95 +97,119 @@ const RightNumPad = styled.div`
 
 
 
+
+
+
+
+
 function TKL(){
+
+    const[key, setKey] = useState("");
+    
+
+    $("body").on('keydown', function(event){
+        console.log('KeyPressed: ' + event.code);
+        setKey(event.code);
+    });
+
+    const test = document.querySelectorAll('button');
+
+    test.forEach(button => {
+        if(button.name == key){
+            button.style.backgroundColor = "red";
+        }
+    });
+
+  
+
     return(
         <Container>
             <Keyboard>
                 <BaseBlock>
                     <FunctionRow>
-                        <Keycaps marginRight = '50px'>esc</Keycaps>
+                        <Keycaps marginRight = '50px' name='Escape'>esc</Keycaps>
                         
-                            <Keycaps>f1</Keycaps>
-                            <Keycaps>f2</Keycaps>
-                            <Keycaps>f3</Keycaps>
-                            <Keycaps marginRight = '31px'>f4</Keycaps>
-                            <Keycaps>f5</Keycaps>
-                            <Keycaps>f6</Keycaps>
-                            <Keycaps>f7</Keycaps>
-                            <Keycaps marginRight = "31px">f8</Keycaps>
-                            <Keycaps>f9</Keycaps>
-                            <Keycaps>f10</Keycaps>
-                            <Keycaps>f11</Keycaps>
-                            <Keycaps>f12</Keycaps>
+                            <Keycaps name='F1'>f1</Keycaps>
+                            <Keycaps name='F2'>f2</Keycaps>
+                            <Keycaps name='F3'>f3</Keycaps>
+                            <Keycaps marginRight = '31px' name='F4'>f4</Keycaps>
+                            <Keycaps name='F5'>f5</Keycaps>
+                            <Keycaps name='F6'>f6</Keycaps>
+                            <Keycaps name='F7'>f7</Keycaps>
+                            <Keycaps marginRight = "31px" name='F8'>f8</Keycaps>
+                            <Keycaps name='F9'>f9</Keycaps>
+                            <Keycaps name='F10'>f10</Keycaps>
+                            <Keycaps name='F11'>f11</Keycaps>
+                            <Keycaps name='F12'>f12</Keycaps>
                         
                     </FunctionRow>
 
                     <MainKeys>
-                        <Keycaps>`~</Keycaps>
-                        <Keycaps>1!</Keycaps>
-                        <Keycaps>2@</Keycaps>
-                        <Keycaps>3#</Keycaps>
-                        <Keycaps>4$</Keycaps>
-                        <Keycaps>5%</Keycaps>
-                        <Keycaps>6^</Keycaps>
-                        <Keycaps>7&</Keycaps>
-                        <Keycaps>8*</Keycaps>
-                        <Keycaps>9{'('}</Keycaps>
-                        <Keycaps>0{')'}</Keycaps>
-                        <Keycaps>-_</Keycaps>
-                        <Keycaps>+=</Keycaps>
-                        <Keycaps width = "100px">BackSpace</Keycaps>
+                        <Keycaps name='Backquote'>`~</Keycaps>
+                        <Keycaps name='Digit1'>1!</Keycaps>
+                        <Keycaps name='Digit2'>2@</Keycaps>
+                        <Keycaps name='Digit3'>3#</Keycaps>
+                        <Keycaps name='Digit4'>4$</Keycaps>
+                        <Keycaps name='Digit5'>5%</Keycaps>
+                        <Keycaps name='Digit6'>6^</Keycaps>
+                        <Keycaps name='Digit7'>7&</Keycaps>
+                        <Keycaps name='Digit8'>8*</Keycaps>
+                        <Keycaps name='Digit9'>9{'('}</Keycaps>
+                        <Keycaps name='Digit0'>0{')'}</Keycaps>
+                        <Keycaps name='Minus'>-_</Keycaps>
+                        <Keycaps name='Equal'>+=</Keycaps>
+                        <Keycaps width = "100px" name='Backspace'>BackSpace</Keycaps>
 
-                        <Keycaps width = '75px'>tab</Keycaps>
-                        <Keycaps>Q</Keycaps>
-                        <Keycaps>W</Keycaps>
-                        <Keycaps>E</Keycaps>
-                        <Keycaps>R</Keycaps>
-                        <Keycaps>T</Keycaps>
-                        <Keycaps>Y</Keycaps>
-                        <Keycaps>U</Keycaps>
-                        <Keycaps>I</Keycaps>
-                        <Keycaps>O</Keycaps>
-                        <Keycaps>P</Keycaps>
-                        <Keycaps>{'[{'}</Keycaps>
-                        <Keycaps>{']}'}</Keycaps>
-                        <Keycaps width='75px'>\|</Keycaps>
+                        <Keycaps width = '75px' name='Tab'>tab</Keycaps>
+                        <Keycaps name='KeyQ'>Q</Keycaps>
+                        <Keycaps name='KeyW'>W</Keycaps>
+                        <Keycaps name='KeyE'>E</Keycaps>
+                        <Keycaps name='KeyR'>R</Keycaps>
+                        <Keycaps name='KeyT'>T</Keycaps>
+                        <Keycaps name='KeyY'>Y</Keycaps>
+                        <Keycaps name='KeyU'>U</Keycaps>
+                        <Keycaps name='KeyI'>I</Keycaps>
+                        <Keycaps name='KeyO'>O</Keycaps>
+                        <Keycaps name='KeyP'>P</Keycaps>
+                        <Keycaps name='BracketLeft'>{'[{'}</Keycaps>
+                        <Keycaps name='BracketRight'>{']}'}</Keycaps>
+                        <Keycaps width='75px' name='Backslash'>\|</Keycaps>
 
-                        <Keycaps width = '90px'>caps</Keycaps>
-                        <Keycaps>A</Keycaps>
-                        <Keycaps>S</Keycaps>
-                        <Keycaps>D</Keycaps>
-                        <Keycaps>F</Keycaps>
-                        <Keycaps>G</Keycaps>
-                        <Keycaps>H</Keycaps>
-                        <Keycaps>J</Keycaps>
-                        <Keycaps>K</Keycaps>
-                        <Keycaps>L</Keycaps>
-                        <Keycaps>;:</Keycaps>
-                        <Keycaps>'"</Keycaps>
-                        <Keycaps width='113px'>enter</Keycaps>
+                        <Keycaps width = '90px' name='CapsLock'>caps</Keycaps>
+                        <Keycaps name='KeyA'>A</Keycaps>
+                        <Keycaps name='KeyS'>S</Keycaps>
+                        <Keycaps name='KeyD'>D</Keycaps>
+                        <Keycaps name='KeyF'>F</Keycaps>
+                        <Keycaps name='KeyG'>G</Keycaps>
+                        <Keycaps name='KeyH'>H</Keycaps>
+                        <Keycaps name='KeyJ'>J</Keycaps>
+                        <Keycaps name='KeyK'>K</Keycaps>
+                        <Keycaps name='KeyL'>L</Keycaps>
+                        <Keycaps name='Semicolon'>;:</Keycaps>
+                        <Keycaps name='Quote'>'"</Keycaps>
+                        <Keycaps width='113px' name='Enter'>enter</Keycaps>
 
-                        <Keycaps width = '120px'>shift</Keycaps>
-                        <Keycaps>Z</Keycaps>
-                        <Keycaps>X</Keycaps>
-                        <Keycaps>C</Keycaps>
-                        <Keycaps>V</Keycaps>
-                        <Keycaps>B</Keycaps>
-                        <Keycaps>N</Keycaps>
-                        <Keycaps>M</Keycaps>
-                        <Keycaps>{',<'}</Keycaps>
-                        <Keycaps>{'.>'}</Keycaps>
-                        <Keycaps>/?</Keycaps>
-                        <Keycaps width='136px'>shift</Keycaps>
+                        <Keycaps width = '120px' name='ShiftLeft'>shift</Keycaps>
+                        <Keycaps name='KeyZ'>Z</Keycaps>
+                        <Keycaps name='KeyX'>X</Keycaps>
+                        <Keycaps name='KeyC'>C</Keycaps>
+                        <Keycaps name='KeyV'>V</Keycaps>
+                        <Keycaps name='KeyB'>B</Keycaps>
+                        <Keycaps name='KeyN'>N</Keycaps>
+                        <Keycaps name='KeyM'>M</Keycaps>
+                        <Keycaps name='Comma'>{',<'}</Keycaps>
+                        <Keycaps name='Period'>{'.>'}</Keycaps>
+                        <Keycaps name='Slash'>/?</Keycaps>
+                        <Keycaps width='136px' name='ShiftRight'>shift</Keycaps>
 
-                        <Keycaps width = '70px'>ctrl</Keycaps>
-                        <Keycaps width = '70px'>option</Keycaps>
-                        <Keycaps width = '70px'>command</Keycaps>
-                        <Keycaps width = '278px'>⎯</Keycaps>
-                        <Keycaps width = '70px'>command</Keycaps>
-                        <Keycaps width = '70px'>option</Keycaps>
-                        <Keycaps width = '70px'>fn</Keycaps>
-                        <Keycaps width = '70px'>ctrl</Keycaps>
+                        <Keycaps width = '70px' name='ControlLeft'>ctrl</Keycaps>
+                        <Keycaps width = '70px' name='AltLeft'>option</Keycaps>
+                        <Keycaps width = '70px' name='MetaLeft'>command</Keycaps>
+                        <Keycaps width = '278px' name='Space'>⎯</Keycaps>
+                        <Keycaps width = '70px' name='MetaRight'>command</Keycaps>
+                        <Keycaps width = '70px' name='AltRight'>option</Keycaps>
+                        <Keycaps width = '70px' name=''>fn</Keycaps>
+                        <Keycaps width = '70px' name='ControlRight'>ctrl</Keycaps>
                     </MainKeys>
                 </BaseBlock>
 
@@ -194,48 +221,48 @@ function TKL(){
                     </TopNav>
 
                     <ScrollNav>
-                        <Keycaps>ins</Keycaps>
-                        <Keycaps>home</Keycaps>
-                        <Keycaps>pgup</Keycaps>
-                        <Keycaps>del</Keycaps>
-                        <Keycaps>end</Keycaps>
-                        <Keycaps>pgdn</Keycaps>
+                        <Keycaps name='Insert'>ins</Keycaps>
+                        <Keycaps name='Home'>home</Keycaps>
+                        <Keycaps name='PageUp'>pgup</Keycaps>
+                        <Keycaps name='Delete'>del</Keycaps>
+                        <Keycaps name='End'>end</Keycaps>
+                        <Keycaps name='PageDown'>pgdn</Keycaps>
                     </ScrollNav>
 
                     <UpArrow>
-                       <Keycaps>↑</Keycaps>
+                       <Keycaps name='ArrowUp'>↑</Keycaps>
                     </UpArrow>
                     
                     <Arrows>
-                        <Keycaps>←</Keycaps>
-                        <Keycaps>↓</Keycaps>
-                        <Keycaps>→</Keycaps>
+                        <Keycaps name='ArrowLeft'>←</Keycaps>
+                        <Keycaps name='ArrowDown'>↓</Keycaps>
+                        <Keycaps name='ArrowRight'>→</Keycaps>
                     </Arrows>
 
                 </NavigationBlock>
 
                 <NumberPadBlock>
                     <LeftNumPad>
-                        <Keycaps>num</Keycaps>
-                        <Keycaps>/</Keycaps>
-                        <Keycaps>*</Keycaps>
-                        <Keycaps>7</Keycaps>
-                        <Keycaps>8</Keycaps>
-                        <Keycaps>9</Keycaps>
-                        <Keycaps>4</Keycaps>
-                        <Keycaps>5</Keycaps>
-                        <Keycaps>6</Keycaps>
-                        <Keycaps>1</Keycaps>
-                        <Keycaps>2</Keycaps>
-                        <Keycaps>3</Keycaps>
-                        <Keycaps width = '104px'>0</Keycaps>
-                        <Keycaps>.</Keycaps>
+                        <Keycaps name='NumLock'>num</Keycaps>
+                        <Keycaps name='NumpadDivide'>/</Keycaps>
+                        <Keycaps name='NumpadMultiply'>*</Keycaps>
+                        <Keycaps name='Numpad7'>7</Keycaps>
+                        <Keycaps name='Numpad8'>8</Keycaps>
+                        <Keycaps name='Numpad9'>9</Keycaps>
+                        <Keycaps name='Numpad4'>4</Keycaps>
+                        <Keycaps name='Numpad5'>5</Keycaps>
+                        <Keycaps name='Numpad6'>6</Keycaps>
+                        <Keycaps name='Numpad1'>1</Keycaps>
+                        <Keycaps name='Numpad2'>2</Keycaps>
+                        <Keycaps name='Numpad3'>3</Keycaps>
+                        <Keycaps width = '104px' name='Numpad0'>0</Keycaps>
+                        <Keycaps name='NumpadDecimal'>.</Keycaps>
                     </LeftNumPad>
 
                     <RightNumPad>
-                        <Keycaps>-</Keycaps>
-                        <Keycaps height = '100px'>+</Keycaps>
-                        <Keycaps height = '100px'>enter</Keycaps>
+                        <Keycaps name='NumpadSubtract'>-</Keycaps>
+                        <Keycaps height = '100px' name='NumpadAdd'>+</Keycaps>
+                        <Keycaps height = '100px' name='NumpadEnter'>enter</Keycaps>
                     </RightNumPad>
                     
                 </NumberPadBlock>

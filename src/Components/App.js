@@ -9,7 +9,7 @@ function App() {
       <h1 className='header'>Keyboards</h1>
     </header>
 
-    <Link to={"/tkl"}><h5>Back to main←</h5></Link>
+    <Link to={"/tkl"}><h5>TKL board</h5></Link>
     </>
   );
 }
