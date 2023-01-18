@@ -130,7 +130,7 @@ function TKL(){
                 <Keyboard>
                     <BaseBlock>
                         <FunctionRow>
-                            <Keycaps marginRight = '50px' name='Escape'>esc</Keycaps>
+                                <Keycaps marginRight = '50px' name='Escape'>esc</Keycaps>
                             
                                 <Keycaps name='F1'>f1</Keycaps>
                                 <Keycaps name='F2'>f2</Keycaps>
