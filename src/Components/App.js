@@ -1,6 +1,7 @@
 import '../CSS/App.css';
 import TKL from './TKL.js';
 import SixtyPercent from './SixtyPercent';
+import SeventyFivePercent from './SeventyFivePercent';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
@@ -14,6 +15,7 @@ function App() {
 
     <Link to={"/tkl"}><h5>TKL board</h5></Link>
     <Link to={"/60%"}><h5>60% board</h5></Link>
+    <Link to={"/75%"}><h5>75% board</h5></Link>
     </>
   );
 }

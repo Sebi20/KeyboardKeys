@@ -39,7 +39,6 @@ const Keycaps = styled.button`
 function SixtyPercent(){
 
     const[key, setKey] = useState("");
-    
 
     $("body").on('keydown', function(event){
         console.log('KeyPressed: ' + event.code);
